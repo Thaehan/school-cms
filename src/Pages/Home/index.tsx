@@ -1,22 +1,8 @@
-import { useNavigate } from "react-router-dom";
-
-const renderBody = () => {
-  const arr = [];
-  for (let i = 0; i < 100; i++) {
-    arr.push(<div className="container">Dat do da den day</div>);
-  }
-  return arr;
-};
+import { Box } from "@mui/material";
+import useHome from "./services";
 
 export default function HomePage() {
-  const navigate = useNavigate();
+  const { currentUser } = useHome();
 
-  return (
-    <div className="container">
-      <button onClick={() => navigate("/help")}>Help</button>
-      {renderBody().map((item) => {
-        return item;
-      })}
-    </div>
-  );
+  return <Box>Xin chào {currentUser.user.username}</Box>;
 }

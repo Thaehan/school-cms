@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "@Api/AuthApi";
-import { setUser } from "src/Store/Reducers/userSlice";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
+import { setUser } from "src/Store/Reducers/userSlice";
+import { login } from "@Api/AuthApi";
 
 export default function useLogin() {
   const dispatch = useDispatch();
@@ -15,12 +17,16 @@ export default function useLogin() {
       const res = await login({ username, password });
 
       if (res) {
-        console.log(res);
+        if (res.user.role !== "admin") {
+          toast.warn("Tài khoản không phải admin!");
+          return;
+        }
         dispatch(setUser(res));
         navigate("/");
+        toast.success("Đăng nhập thành công!");
       }
     } catch (error) {
-      console.error(error);
+      toast.error("Vui lòng nhập đúng tên đăng nhập và mật khẩu!");
     }
   };
 

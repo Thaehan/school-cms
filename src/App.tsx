@@ -1,11 +1,14 @@
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+
 import RootRoutes from "@Routes/RootRoutes";
 import "@Assets/scss/footer.scss";
 import "@Assets/Scss/global.scss";
 import "@Assets/scss/header.scss";
-import { Provider } from "react-redux";
 import { store } from "./Store/configureStore";
-import { useEffect } from "react";
-import { PersistGate } from "redux-persist/integration/react";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   localStorage.setItem(
@@ -24,7 +27,21 @@ function App() {
   );
   return (
     <Provider store={store}>
-      <RootRoutes />
+      <LocalizationProvider dateAdapter={AdapterMoment}>
+        <RootRoutes />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </LocalizationProvider>
     </Provider>
   );
 }

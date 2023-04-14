@@ -1,15 +1,9 @@
-import {baseUrl} from '@Configs/configs';
-import axios from 'axios';
+import { apiUrl } from "@Config/Config";
+import axios from "axios";
 
-const topicUrl = `${baseUrl}/topics`;
+const topicUrl = `${apiUrl}/topics`;
 
-export const getTopics = async ({
-  search,
-  ids,
-}: {
-  search?: any;
-  ids?: string[];
-}) => {
+export const getTopics = async ({ search, ids }: { search?: any; ids?: string[] }) => {
   let url = `${topicUrl}/`;
   if (search) {
     url += `?search=${search}`;

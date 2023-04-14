@@ -29,7 +29,7 @@
       "@Types/*": ["./src/Types/*"],
       "@Contexts/*": ["./src/Contexts/*"],
       "@Routes/*": ["./src/Routes/*"],
-      "@Constants/*": ["./src/Constatns/*"],
+      "@Constants/*": ["./src/Constants/*"],
       "@Hooks/*": ["./src/Hooks/*"],
       "@Languages/*": ["./src/Languages/*"]
     },
