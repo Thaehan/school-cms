@@ -5,17 +5,17 @@ import axios from "axios";
 const categoryUrl = `${apiUrl}/categories`;
 
 export const getCategories = async () => {
-  const res = await axios.get(`${categoryUrl}`);
+  const res = await axios.get(`${categoryUrl}/`);
   return res.data;
 };
 
 export const createCategory = async (body: any) => {
-  const res = await axios.post(`${categoryUrl}`, body);
+  const res = await axios.post(`${categoryUrl}/`, body);
   return res.data;
 };
 
 export const editCategory = async (id: string, data: ICategory) => {
-  const res = await axios.put(`${categoryUrl}`, {
+  const res = await axios.put(`${categoryUrl}/`, {
     id,
     data
   });
