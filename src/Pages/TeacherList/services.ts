@@ -15,7 +15,7 @@ interface Column {
   format: (value: any) => string;
 }
 
-export default function useStudentList() {
+export default function useTeacherList() {
   const columns: readonly Column[] = [
     {
       id: "teacher_code",

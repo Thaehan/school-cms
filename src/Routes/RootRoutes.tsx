@@ -9,6 +9,7 @@ import ResponsiveDrawer from "@Components/Drawer";
 import TeacherList from "@Screens/TeacherList";
 import StudentList from "@Screens/StudentList";
 import Category from "@Screens/Category";
+import TopicList from "@Screens/TopicList";
 
 function MainRoutes({ user }: { user: IUserSlice }) {
   const allMainRoutes = useRoutes([
@@ -27,6 +28,10 @@ function MainRoutes({ user }: { user: IUserSlice }) {
     {
       path: "/students",
       element: user.token ? <StudentList /> : <Navigate to="/login" />
+    },
+    {
+      path: "/topics",
+      element: user.token ? <TopicList /> : <Navigate to="/login" />
     },
     {
       path: "/login",

@@ -31,7 +31,8 @@
       "@Routes/*": ["./src/Routes/*"],
       "@Constants/*": ["./src/Constants/*"],
       "@Hooks/*": ["./src/Hooks/*"],
-      "@Languages/*": ["./src/Languages/*"]
+      "@Languages/*": ["./src/Languages/*"],
+      "@Utils/*": ["./src/Utils/*"]
     },
     "lib": [
       "es2015",

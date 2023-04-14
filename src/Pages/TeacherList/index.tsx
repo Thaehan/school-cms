@@ -58,8 +58,6 @@ export default function TeacherList() {
     setAddress,
     mainCourses,
     setMainCourses,
-    topicIds,
-    setTopicIds,
     listCategory
   } = useTeacherList();
 
@@ -334,6 +332,23 @@ export default function TeacherList() {
               onChange={(event) => setAddress(event.target.value)}
               sx={{ paddingBlock: 2 }}
             />
+            <TextField
+              label="Chuyên ngành"
+              id="mainCourses"
+              select
+              sx={{ marginBlock: 2 }}
+              SelectProps={{
+                multiple: true,
+                value: mainCourses,
+                onChange: (event: any) => {
+                  setMainCourses(event.target.value);
+                }
+              }}>
+              {listCategory &&
+                listCategory.map((item) => {
+                  return <MenuItem value={item.id}>{item.category_name}</MenuItem>;
+                })}
+            </TextField>
           </Box>
         }
       />
